@@ -1,5 +1,5 @@
 {
-    "name": "MEP Family",
+    "name": "MEP Family level",
     "description": "",
     "dependencies": {
         "device": "*",
