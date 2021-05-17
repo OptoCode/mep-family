@@ -199,6 +199,10 @@ game.showLongText("Collect crops before the crop season in over", DialogLayout.B
 pause(1000)
 info.startCountdown(30)
 forever(function () {
-    music.setVolume(20)
-    music.playMelody("G B A G C5 B A B ", 120)
+    if (game.runtime() < 20000) {
+        music.setVolume(20)
+        music.playMelody("G B A G C5 B A B ", 120)
+    } else {
+        music.playMelody("G B A G C5 B A B ", 90)
+    }
 })
