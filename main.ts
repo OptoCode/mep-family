@@ -2,8 +2,20 @@ function crop () {
     corn = sprites.create(assets.image`corn1`, SpriteKind.Food)
 }
 function cropTerrainA () {
-    cropPosX = [64, 100, 20]
-    cropPosY = [32, 60, 55]
+    list = [randint(70, 110), randint(30, 60)]
+    corn.setPosition(list[0], list[1])
+}
+function cropTerrainC () {
+    list = [randint(48, 80), randint(160, 176)]
+    corn.setPosition(list[0], list[1])
+}
+info.onCountdownEnd(function () {
+    game.showLongText("At the end of every crop season families have to make a decision of leaving for another crop season in another state or find a permanent job.", DialogLayout.Bottom)
+    game.over(true)
+})
+function cropTerrainD () {
+    list = [randint(128, 160), randint(192, 208)]
+    corn.setPosition(list[0], list[1])
 }
 function player2 () {
     farmworker = sprites.create(img`
@@ -29,13 +41,33 @@ function player2 () {
     scene.cameraFollowSprite(farmworker)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    music.baDing.play()
     info.changeScoreBy(1)
-    corn.setPosition(randint(70, 110), randint(30, 60))
-    info.startCountdown(5)
+    if (counter == 0) {
+        cropTerrainA()
+        counter += 1
+    } else if (counter == 1) {
+        cropTerrainB()
+        counter += 1
+    } else if (counter == 2) {
+        cropTerrainC()
+        counter += 1
+    } else if (counter == 3) {
+        cropTerrainB()
+        counter += 1
+    } else {
+        if (counter == 4) {
+            counter = 0
+        }
+    }
 })
+function cropTerrainB () {
+    list = [randint(128, 160), randint(96, 112)]
+    corn.setPosition(list[0], list[1])
+}
+let counter = 0
 let farmworker: Sprite = null
-let cropPosY: number[] = []
-let cropPosX: number[] = []
+let list: number[] = []
 let corn: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -162,3 +194,11 @@ scene.setBackgroundImage(img`
 tiles.setTilemap(tilemap`level1`)
 player2()
 crop()
+game.showLongText("Every year families make decision due to crop seasons to move to find work. This affects children education", DialogLayout.Bottom)
+game.showLongText("Collect crops before the crop season in over", DialogLayout.Bottom)
+pause(1000)
+info.startCountdown(30)
+forever(function () {
+    music.setVolume(20)
+    music.playMelody("G B A G C5 B A B ", 120)
+})
