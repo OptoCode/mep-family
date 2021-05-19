@@ -201,8 +201,8 @@ info.startCountdown(30)
 forever(function () {
     if (game.runtime() < 20000) {
         music.setVolume(20)
-        music.playMelody("G B A G C5 B A B ", 120)
+        music.playMelody("D E F G F G F E ", 100)
     } else {
-        music.playMelody("G B A G C5 B A B ", 90)
+        music.playMelody("D E F G F G F E ", 80)
     }
 })
