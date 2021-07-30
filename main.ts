@@ -10,7 +10,7 @@ function cropTerrainC () {
     corn.setPosition(list[0], list[1])
 }
 info.onCountdownEnd(function () {
-    game.showLongText("At the end of every crop, season families have to decide to leave for another crop season in another state or find a permanent job.", DialogLayout.Bottom)
+    game.showLongText("At the end of every crop season, families have to make a hard decision to stay or move back to start another crop season in another school district, city, or state. ", DialogLayout.Bottom)
     game.over(true)
 })
 function cropTerrainD () {
@@ -177,10 +177,11 @@ scene.setBackgroundImage(img`
 tiles.setTilemap(tilemap`level1`)
 player2()
 crop()
-game.showLongText("Every year families decide due to crop seasons to move to find work. This affects children's education.", DialogLayout.Bottom)
-game.showLongText("Collect crops before the crop season is over.", DialogLayout.Bottom)
-pause(1000)
-info.startCountdown(30)
+game.showLongText("Every year families move across the United States due to agricultural seasons, which disturb children's education.", DialogLayout.Bottom)
+game.showLongText("Use the arrow keys to collect crops.", DialogLayout.Bottom)
+game.showLongText("Watch the countdown; the crop season is running down.", DialogLayout.Bottom)
+pause(500)
+info.startCountdown(15)
 game.onUpdate(function () {
     // set hero facing directions
     if (farmworker.vx > 0) {
