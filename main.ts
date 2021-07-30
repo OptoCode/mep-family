@@ -177,9 +177,9 @@ scene.setBackgroundImage(img`
 tiles.setTilemap(tilemap`level1`)
 player2()
 crop()
-game.showLongText("Every year families move across the United States due to agricultural seasons, which disturb children's education.", DialogLayout.Bottom)
+game.showLongText("Every year, families move across the United States due to agricultural seasons, which interrupt children's education.", DialogLayout.Bottom)
 game.showLongText("Use the arrow keys to collect crops.", DialogLayout.Bottom)
-game.showLongText("Watch the countdown; the crop season is running down.", DialogLayout.Bottom)
+game.showLongText("Watch the countdown at the top of the screen! Collect enough crops before the season is over. ", DialogLayout.Bottom)
 pause(500)
 info.startCountdown(15)
 game.onUpdate(function () {
