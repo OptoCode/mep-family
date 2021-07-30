@@ -10,7 +10,9 @@ function cropTerrainC () {
     tobacco.setPosition(list[0], list[1])
 }
 info.onCountdownEnd(function () {
-    game.showLongText("At the end of every crop season, families have to make a hard decision to stay or move back to start another crop season in another school district, city, or state. ", DialogLayout.Bottom)
+    pause(1000)
+    game.showLongText("The crop season is over!", DialogLayout.Full)
+    game.showLongText("At the end of every crop season, families have to make a hard decision to stay or move back to start another crop season in another school district, city, or state. ", DialogLayout.Full)
     game.over(true)
 })
 function cropTerrainD () {
@@ -18,7 +20,24 @@ function cropTerrainD () {
     tobacco.setPosition(list[0], list[1])
 }
 function player2 () {
-    farmworker = sprites.create(assets.image`farmWorker`, SpriteKind.Player)
+    farmworker = sprites.create(img`
+        . . . . f f f f . . . . 
+        . . f f e e e e f f . . 
+        . f f e e e e e e f f . 
+        f f f f 4 e e e f f f f 
+        f f f 4 4 4 e e f f f f 
+        f f f 4 4 4 4 e e f f f 
+        f 4 e 4 4 4 4 4 4 e 4 f 
+        f 4 4 f f 4 4 f f 4 4 f 
+        f e 4 d d d d d d 4 e f 
+        . f e d d b b d d e f . 
+        . f f e 4 4 4 4 e f f . 
+        e 4 f b 1 1 1 1 b f 4 e 
+        4 d f 1 1 1 1 1 1 f d 4 
+        4 4 f 6 6 6 6 6 6 f 4 4 
+        . . . f f f f f f . . . 
+        . . . f f . . f f . . . 
+        `, SpriteKind.Player)
     farmworker.setPosition(30, 30)
     controller.moveSprite(farmworker)
     scene.cameraFollowSprite(farmworker)
@@ -177,9 +196,9 @@ scene.setBackgroundImage(img`
 tiles.setTilemap(tilemap`level1`)
 player2()
 crop()
-game.showLongText("Every year families move across the United States due to agricultural seasons, which disturb children's education.", DialogLayout.Bottom)
+game.showLongText("Every year, families move across the United States due to agricultural seasons, which interrupt children's education.", DialogLayout.Bottom)
 game.showLongText("Use the arrow keys to collect crops.", DialogLayout.Bottom)
-game.showLongText("Watch the countdown; the crop season is running down.", DialogLayout.Bottom)
+game.showLongText("Watch the countdown at the top of the screen! Collect enough crops before the season is over. ", DialogLayout.Bottom)
 pause(500)
 info.startCountdown(15)
 game.onUpdate(function () {
