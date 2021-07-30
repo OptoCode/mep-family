@@ -1,13 +1,13 @@
 function crop () {
-    corn = sprites.create(assets.image`corn1`, SpriteKind.Food)
+    tobacco = sprites.create(assets.image`corn1`, SpriteKind.Food)
 }
 function cropTerrainA () {
     list = [randint(70, 110), randint(30, 60)]
-    corn.setPosition(list[0], list[1])
+    tobacco.setPosition(list[0], list[1])
 }
 function cropTerrainC () {
     list = [randint(48, 80), randint(160, 176)]
-    corn.setPosition(list[0], list[1])
+    tobacco.setPosition(list[0], list[1])
 }
 info.onCountdownEnd(function () {
     game.showLongText("At the end of every crop season, families have to make a hard decision to stay or move back to start another crop season in another school district, city, or state. ", DialogLayout.Bottom)
@@ -15,7 +15,7 @@ info.onCountdownEnd(function () {
 })
 function cropTerrainD () {
     list = [randint(128, 160), randint(192, 208)]
-    corn.setPosition(list[0], list[1])
+    tobacco.setPosition(list[0], list[1])
 }
 function player2 () {
     farmworker = sprites.create(assets.image`farmWorker`, SpriteKind.Player)
@@ -46,12 +46,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 })
 function cropTerrainB () {
     list = [randint(128, 160), randint(96, 112)]
-    corn.setPosition(list[0], list[1])
+    tobacco.setPosition(list[0], list[1])
 }
 let counter = 0
 let farmworker: Sprite = null
 let list: number[] = []
-let corn: Sprite = null
+let tobacco: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
